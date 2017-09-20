@@ -299,7 +299,7 @@ var YelpapiService = (function () {
         //headers.append('Authorization', 'Bearer _oEVu39g91rQTbXCpLPztKYlHs-7-uXWWDxBVFEzJGggzgH5orCLcvMRE30glOugJ08ETFAE0SkP2KftK-Aauwtp4C8YZU74VXBVt2Sj9b8wMrHFNZqm3UCCcaFeWXYx')
         headers.append('Content-Type', 'application/json');
         console.log(query);
-        return this.http.get('http://local.dev.com:3003/textSearch/' + Query, { headers: headers })
+        return this.http.get('/textSearch/' + Query, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     return YelpapiService;
