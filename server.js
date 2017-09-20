@@ -32,17 +32,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', mainRouter);
 // app.use('/user', twitterRouter);
 
-// passport.use(new TwitterStrategy({
-//         consumerKey: process.env.TWITTER_CONSUMER_KEY,
-//         consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-//         callbackUrl: ""
-//     },
-//     function(token, tokenSecret, profile, cb) {
-//         User.findOrCreate({ twitterId: profile.id }, function(err, user) {
-//             return cb(err, user);
-//         });
-//     }
-// ));
+passport.use(new TwitterStrategy({
+        consumerKey: process.env.TWITTER_CONSUMER_KEY,
+        consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+        callbackUrl: ""
+    },
+    function(token, tokenSecret, profile, cb) {
+        User.findOrCreate({ twitterId: profile.id }, function(err, user) {
+            return cb(err, user);
+        });
+    }
+));
 // app.use(session({
 //     secret: 'keyboard cat',
 //     resave: false,
