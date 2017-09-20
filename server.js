@@ -9,7 +9,7 @@ var session = require('express-session');
 var passport = require('passport')
 var mainRouter = require('./routes/mainRouter')
 var cors = require('cors');
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3003;
 var app = express();
 
 // view engine setup
@@ -109,7 +109,7 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-app.listen('port', (req, res) => {
+app.listen('3003', (req, res) => {
     console.log("Application using " + port);
 })
 
