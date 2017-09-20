@@ -17,7 +17,12 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, './views')));
 
-app.use(session({ secret: 'my_precious' }));
+app.use(session({
+    secret: 'my_secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}))
 app.use(passport.initialize());
 app.use(passport.session());
 
