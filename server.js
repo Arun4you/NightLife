@@ -17,18 +17,14 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, './views')));
 
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-}))
+app.use(express.session({ secret: 'my_precious' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new TwitterStrategy({
         consumerKey: 'Ef8oF6gBVs9zkJ4wGIamY3Jze',
         consumerSecret: 'gkjv1qPCylTAtonpq07C2PT4YY5vIvAmZe4FaotOyBrqGSMUCB',
-        callbackURL: "http://local.dev.com:3003"
+        callbackURL: "https://nightlifebyarun.herokuapp.com/"
     },
     function(token, tokenSecret, profile, cb) {
         User.findOrCreate({ twitterId: profile.id }, function(err, user) {
