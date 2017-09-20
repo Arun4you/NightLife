@@ -197,10 +197,12 @@ var DashboardComponent = (function () {
         });
     };
     DashboardComponent.prototype.twittercall = function (club) {
+        var _this = this;
         var clubdetails = club;
         console.log("component");
-        this.twitterapi.twittercall().subscribe(function (data) { return console.log(data); });
+        this.twitterapi.twittercall().subscribe(function (data) { return console.log(JSON.stringify(_this.clubs)); });
     };
+    ;
     return DashboardComponent;
 }());
 DashboardComponent = __decorate([
