@@ -1,0 +1,8 @@
+{
+    "/auth/twitter": {
+        "target": "http://local.dev.com:3003",
+        "secure": false,
+        "logLevel": "debug"
+    }
+
+}

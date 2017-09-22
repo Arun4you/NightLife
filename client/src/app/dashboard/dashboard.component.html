@@ -1,0 +1,58 @@
+<body>
+    <section id="head-section">
+
+        <div class="row" id="head">
+            <div class="col text-center">
+                <div class="display-4"> <strong>Plans Tonight?</strong>
+                    <div class="fontawsome p4">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <i class="fa fa-car" aria-hidden="true"></i>
+                        <i class="fa fa-glass" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <p> See Which bars are hoping tonight and RSVP ahead of time!</p>
+                <p>Remember: take a cab and drink responsibly.</p>
+            </div>
+        </div>
+
+        <div class="col text-center">
+            <div class="container">
+                <div class="input-group ">
+                    <input type="text " [(ngModel)]="location " name="location " class="form-control " placeholder="Search for... " aria-label="Search for... ">
+                    <span class="input-group-btn ">
+                                          <button class="btn btn-secondary " type="button " (click)="textSearch() ">Go!</button>
+                                        </span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="body-section ">
+        <div class="container ">
+            <div *ngFor="let club of clubs ">
+                <div class="row ">
+                    <div class="d-flex flex-row ">
+                        <div class="p-20 align-self-start ">
+                            <div class="thumbnail ">
+                                <img src="{{club.image_url}} " alt="image ">
+                            </div>
+                        </div>
+                        <div class="p-4 align-self-end " class="text-justify">
+                            <span><strong> {{ club.name }} </strong></span>
+                            <button class="alert primary-success" (click)="twittercall(club)">
+                              going
+                          </button>
+                            <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt, quaerat cupiditate quia voluptate voluptatum repellendus?
+                                <p>
+
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+</body>
