@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class TwitterService {  
-    constructor(private http: Http) { }
+    constructor(private jsonp: Http) { }
     
         query : string;
         // twittercall(){ 
@@ -17,9 +17,13 @@ export class TwitterService {
         // } 
 
         twittercall(){ 
-            var headers = new Headers();    
+            var headers = new Headers();
+            headers.append('Access-Control-Allow-Origin', "*");
+            headers.append("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+            headers.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            headers.append('Content-Type','accept');     
             console.log("service");
-            return this.http.get('/auth/twitter',{headers:headers})
+            return this.jsonp.get('/auth/twitter',{headers:headers})
             .map(res=>res.json())
          } 
 

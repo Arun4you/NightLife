@@ -241,8 +241,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var TwitterService = (function () {
-    function TwitterService(http) {
-        this.http = http;
+    function TwitterService(jsonp) {
+        this.jsonp = jsonp;
     }
     // twittercall(){ 
     //    var headers = new Headers();    
@@ -254,8 +254,12 @@ var TwitterService = (function () {
     // } 
     TwitterService.prototype.twittercall = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Access-Control-Allow-Origin', "*");
+        headers.append("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+        headers.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        headers.append('Content-Type', 'accept');
         console.log("service");
-        return this.http.get('/auth/twitter', { headers: headers })
+        return this.jsonp.get('/auth/twitter', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     return TwitterService;

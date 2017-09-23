@@ -13,6 +13,8 @@ var session = require('express-session');
 var TwitterTokenStrategy = require('passport-twitter-token');
 var cors = require('cors')
 
+app.options('*', cors())
+
 app.use(morgan('dev'));
 require('dotenv').config({
     silent: true
@@ -52,18 +54,19 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 var corsOptions = {
-        origin: 'https://nightlifebyarun.herokuapp.com/',
-        optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-    }
-    // app.use(function(req, res, next) {
-    //     res.header('Access-Control-Allow-Credentials', true);
-    //     res.header('Access-Control-Allow-Origin', req.headers.origin)
-    //     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    //     res.header('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
-    //     if (req.method == 'OPTIONS') res.send(200);
-    //     else next();
-    // });
-app.get('/auth/twitter/', cors(corsOptions),
+    origin: 'https://nightlifebyarun.herokuapp.com/',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+// app.use(function(req, res, next) {
+//     res.header('Access-Control-Allow-Credentials', true);
+//     res.header('Access-Control-Allow-Origin', req.headers.origin)
+//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//     res.header('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+//     if (req.method == 'OPTIONS') res.send(200);
+//     else next();
+// });
+app.get('/auth/twitter/', cors(),
     passport.authenticate('twitter'));
 
 // app.get('/', (req, res) => {
