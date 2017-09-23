@@ -18,10 +18,8 @@ export class TwitterService {
 
         twittercall(){ 
             var headers = new Headers();
-            headers.append('Access-Control-Allow-Origin', "*");
-            headers.append("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
-            headers.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-            headers.append('Content-Type','accept');     
+            
+            //headers.append('Content-Type','application/j');     
             console.log("service");
             return this.jsonp.get('/auth/twitter',{headers:headers})
             .map(res=>res.json())

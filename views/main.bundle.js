@@ -254,10 +254,7 @@ var TwitterService = (function () {
     // } 
     TwitterService.prototype.twittercall = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
-        headers.append('Access-Control-Allow-Origin', "*");
-        headers.append("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
-        headers.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        headers.append('Content-Type', 'accept');
+        //headers.append('Content-Type','application/j');     
         console.log("service");
         return this.jsonp.get('/auth/twitter', { headers: headers })
             .map(function (res) { return res.json(); });
