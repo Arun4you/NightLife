@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
      let clubdetails:string= club;
      console.log("component");
      this.twitterapi.twittercall().subscribe(
-       data=>console.log(JSON.stringify(this.clubs)));
+       data=>console.log(JSON.stringify(data)));
      };
    
  

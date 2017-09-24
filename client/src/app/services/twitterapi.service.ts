@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class TwitterService {  
-    constructor(private jsonp: Http) { }
+    constructor(private jsonp: Jsonp) { }
     
         query : string;
         // twittercall(){ 
@@ -20,8 +20,8 @@ export class TwitterService {
         twittercall(){ 
             var headers = new Headers();
             headers.append('X-PINGOTHER','pingpong');  
-            headers.append('Content-Type','application/json'); 
-            headers.append("Accept", "application/json");    
+            // headers.append('Content-Type','application/json'); 
+            // headers.append("Accept", "text/html");    
             console.log("service");
             return this.jsonp.get('/auth/twitter',{headers:headers})
             .map(res=>res.json())
