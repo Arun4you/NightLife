@@ -256,6 +256,7 @@ var TwitterService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('X-PINGOTHER', 'pingpong');
         headers.append('Content-Type', 'application/json');
+        headers.append("Accept", "application/json");
         console.log("service");
         return this.jsonp.get('/auth/twitter', { headers: headers })
             .map(function (res) { return res.json(); });

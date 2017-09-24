@@ -19,7 +19,8 @@ export class TwitterService {
         twittercall(){ 
             var headers = new Headers();
             headers.append('X-PINGOTHER','pingpong');  
-            headers.append('Content-Type','application/json');     
+            headers.append('Content-Type','application/json'); 
+            headers.append("Accept", "application/json");    
             console.log("service");
             return this.jsonp.get('/auth/twitter',{headers:headers})
             .map(res=>res.json())
